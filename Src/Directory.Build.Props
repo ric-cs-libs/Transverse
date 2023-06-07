@@ -1,0 +1,72 @@
+<Project>
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+        
+		<!-- 1/3. Pour permettre à mon NuGet d'embarquer ses dépendances (.dll (ProjectReference)) -->
+		<!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>--><!-- << Pas nécessaire en fait -->
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+	
+	</PropertyGroup>
+
+	<!-- 3/3. Pour permettre à mon NuGet d'embarquer ses dépendances (.dll (ProjectReference)) -->
+	<Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
+		<ItemGroup>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+		</ItemGroup>
+	</Target>
+	
+	<!-- Param. du suffixe des Nugets, ainsi que de leur emplacement -->
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><!-- Lorsque le projet est en mode Debug -->
+		<MyPackageVersionSuffix>-beta</MyPackageVersionSuffix><!-- ici Variable perso. MyPackageVersionSuffix. Elle sera aussi visible par les csproj -->
+		<MyPackageOutputDirSubPath>DEV</MyPackageOutputDirSubPath><!-- ici Variable perso. MyPackageOutputDirSubPath. Elle sera aussi visible par les csproj -->
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' "><!-- Lorsque le projet est en mode Release -->
+		<MyPackageVersionSuffix></MyPackageVersionSuffix><!-- ici Variable perso. MyPackageVersionSuffix. Elle sera aussi visible par les csproj -->
+		<MyPackageOutputDirSubPath>PROD</MyPackageOutputDirSubPath><!-- ici Variable perso. MyPackageOutputDirSubPath. Elle sera aussi visible par les csproj -->
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<!-- ATTENTION, pour les 2 versioning ci-dessous :
+		     concernant la chaîne de version résultante, toute sous-chaîne attendue de la forme ".0x" sera en fait
+		     automatiquement remplacée par ".x", ceci bien malgré moi.
+
+			 Ainsi pour une génération de versionMaj.versionMin non beta, le 05/06/2023 à 7h03 :
+
+			   Le Nuget aura pour version : versionMaj.versionMin.230605.703   (.7 au lieu de .07)
+			   Et les propriétés du fichier DLL, indiqueront une version de fichier : versionMaj.versionMin.2306.507  (.5 au lieu de .05)
+			                                     indiqueront une version de produit : versionMaj.versionMin.2306.0507 
+				     							                          (il s'avère en effet que pour la version produit de la DLL, le "0" après le point n'est pas éliminé)
+		-->
+
+
+		<!-- Initialisations de variables pour le versioning du Package -->
+		<!-- (REM.: je n'ai pas trouvé le moyen d'affecter les propriétés Windows du Package Nuget, contrairement à celles du fichier DLL) -->
+		<!--   Forme finale de la version du Nuget :  VersionMajeure.VersionMineure.DateDuMoment.HeureDuMoment suivi de MyPackageVersionSuffix. -->
+		<!--   (VersionMajeure.VersionMineure étant fixé dans le csproj) -->
+		<DateDuMoment>$([System.String]::Format("{0:yyMMdd}", $([System.DateTime]::Now)))</DateDuMoment><!-- ici Variable perso. DateDuMoment. Elle sera aussi visible par les csproj -->
+		<HeureDuMoment>$([System.String]::Format("{0:HHmm}", $([System.DateTime]::Now)))</HeureDuMoment><!-- ici Variable perso. HeureDuMoment. Elle sera aussi visible par les csproj -->
+
+		<MyPackagePatchVersion>$(DateDuMoment)</MyPackagePatchVersion><!-- ici Variable perso. MyPackagePatchVersion. Elle sera aussi visible par les csproj  -->
+		<MyPackageBuildVersion>$(HeureDuMoment)</MyPackageBuildVersion><!-- ici Variable perso. MyPackageBuildVersion. Elle sera aussi visible par les csproj  -->
+
+		<PackageOutputPath>P:\_C#\_Packages\$(MyPackageOutputDirSubPath)</PackageOutputPath><!-- Dossier où mettre les Nugets générés -->
+		
+
+		<!-- Initialisations de variables pour le versioning dans les propriétés (Windows) du fichier DLL -->
+		<!-- Pour les propriétés du fichier DLL, la partie version du Patch ne peut excéder 5 digits, et idem pour la partie numéro de Build -->
+		<!-- De ce fait, la forme de la version du fichier DLL sera un peu différente que celle utilisée pour le Package Nuget -->
+		<!--   Forme finale de la version du fichier DLL :  VersionMajeure.VersionMineure.AnneeMoisDuMoment.JourHeureDuMoment -->
+		<!--   (VersionMajeure.VersionMineure étant fixé dans le csproj) -->
+		<AnneeMoisDuMoment>$([System.String]::Format("{0:yyMM}", $([System.DateTime]::Now)))</AnneeMoisDuMoment><!-- ici Variable perso. AnneeMoisDuMoment. Elle sera aussi visible par les csproj -->
+		<JourHeureDuMoment>$([System.String]::Format("{0:ddHH}", $([System.DateTime]::Now)))</JourHeureDuMoment><!-- ici Variable perso. JourHeureDuMoment. Elle sera aussi visible par les csproj -->
+		
+		<MyDLLFilePatchVersion>$(AnneeMoisDuMoment)</MyDLLFilePatchVersion><!-- ici Variable perso. MyDLLFilePatchVersion. Elle sera aussi visible par les csproj  -->
+		<MyDLLFileBuildVersion>$(JourHeureDuMoment)</MyDLLFileBuildVersion><!-- ici Variable perso. MyDLLFileBuildVersion. Elle sera aussi visible par les csproj  -->
+
+	</PropertyGroup>
+
+</Project>
