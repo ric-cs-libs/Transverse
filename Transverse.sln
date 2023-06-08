@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{C910ABFD-4137-4472-AF99-EE99D4F0CD53}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TempEssaiPckgDependantDunProjet", "Src\TempEssaiPckgDependantDunProjet\TempEssaiPckgDependantDunProjet.csproj", "{E20E5917-C1B8-4A08-8D25-3870AA59E011}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Dictionary", "Src\Transverse._Common.Dictionary\Transverse._Common.Dictionary.csproj", "{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Exceptions", "Src\Transverse._Common.Exceptions\Transverse._Common.Exceptions.csproj", "{1F5CBF00-8A81-4458-BE88-886FB5AAB874}"
@@ -31,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E20E5917-C1B8-4A08-8D25-3870AA59E011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E20E5917-C1B8-4A08-8D25-3870AA59E011}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E20E5917-C1B8-4A08-8D25-3870AA59E011}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E20E5917-C1B8-4A08-8D25-3870AA59E011}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -68,7 +62,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E20E5917-C1B8-4A08-8D25-3870AA59E011} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
 		{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
 		{1F5CBF00-8A81-4458-BE88-886FB5AAB874} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
 		{A972FF2B-97C7-4B6B-875B-108089283BAB} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
