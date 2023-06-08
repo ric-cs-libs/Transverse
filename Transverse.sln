@@ -5,23 +5,21 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{C910ABFD-4137-4472-AF99-EE99D4F0CD53}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Dictionary", "Src\Transverse._Common.Dictionary\Transverse._Common.Dictionary.csproj", "{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Dictionary", "Src\Transverse._Common\Dictionary\Transverse._Common.Dictionary.csproj", "{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Exceptions", "Src\Transverse._Common.Exceptions\Transverse._Common.Exceptions.csproj", "{1F5CBF00-8A81-4458-BE88-886FB5AAB874}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Exceptions", "Src\Transverse._Common\Exceptions\Transverse._Common.Exceptions.csproj", "{1F5CBF00-8A81-4458-BE88-886FB5AAB874}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.String", "Src\Transverse._Common.String\Transverse._Common.String.csproj", "{A972FF2B-97C7-4B6B-875B-108089283BAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.String", "Src\Transverse._Common\String\Transverse._Common.String.csproj", "{A972FF2B-97C7-4B6B-875B-108089283BAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.DebugTools", "Src\Transverse._Common\DebugTools\Transverse._Common.DebugTools.csproj", "{B79B0EDC-6653-41D1-BD33-2367177CFCB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TESTS", "TESTS", "{347C16CD-D64B-4269-96AC-05D6907CA66E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{C2310625-59F9-42D2-BECE-A6F9EC9C36C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.DebugTools.UnitTests", "TESTS\Transverse._Common\DebugTools\UnitTests\Transverse._Common.DebugTools.UnitTests.csproj", "{A313F69D-CEE0-4409-9666-E958054C75BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.DebugTools.UnitTests", "TESTS\UnitTests\Transverse._Common.DebugTools.UnitTests\Transverse._Common.DebugTools.UnitTests.csproj", "{A313F69D-CEE0-4409-9666-E958054C75BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Dictionary.UnitTests", "TESTS\Transverse._Common\Dictionary\UnitTests\Transverse._Common.Dictionary.UnitTests.csproj", "{D445756B-B91C-4D8C-84F1-4A478D31F08C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.Dictionary.UnitTests", "TESTS\UnitTests\Transverse._Common.Dictionary.UnitTests\Transverse._Common.Dictionary.UnitTests.csproj", "{D445756B-B91C-4D8C-84F1-4A478D31F08C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.String.UnitTests", "TESTS\UnitTests\Transverse._Common.String.UnitTests\Transverse._Common.String.UnitTests.csproj", "{5E734A2E-5512-49F7-8122-9769418C5201}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.DebugTools", "Src\Transverse._Common.DebugTools\Transverse._Common.DebugTools.csproj", "{B79B0EDC-6653-41D1-BD33-2367177CFCB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transverse._Common.String.UnitTests", "TESTS\Transverse._Common\String\UnitTests\Transverse._Common.String.UnitTests.csproj", "{5E734A2E-5512-49F7-8122-9769418C5201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,10 +63,9 @@ Global
 		{EC8D6B8E-5677-48E2-97F0-476AAAF1BFDE} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
 		{1F5CBF00-8A81-4458-BE88-886FB5AAB874} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
 		{A972FF2B-97C7-4B6B-875B-108089283BAB} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
-		{C2310625-59F9-42D2-BECE-A6F9EC9C36C4} = {347C16CD-D64B-4269-96AC-05D6907CA66E}
-		{A313F69D-CEE0-4409-9666-E958054C75BE} = {C2310625-59F9-42D2-BECE-A6F9EC9C36C4}
-		{D445756B-B91C-4D8C-84F1-4A478D31F08C} = {C2310625-59F9-42D2-BECE-A6F9EC9C36C4}
-		{5E734A2E-5512-49F7-8122-9769418C5201} = {C2310625-59F9-42D2-BECE-A6F9EC9C36C4}
 		{B79B0EDC-6653-41D1-BD33-2367177CFCB4} = {C910ABFD-4137-4472-AF99-EE99D4F0CD53}
+		{A313F69D-CEE0-4409-9666-E958054C75BE} = {347C16CD-D64B-4269-96AC-05D6907CA66E}
+		{D445756B-B91C-4D8C-84F1-4A478D31F08C} = {347C16CD-D64B-4269-96AC-05D6907CA66E}
+		{5E734A2E-5512-49F7-8122-9769418C5201} = {347C16CD-D64B-4269-96AC-05D6907CA66E}
 	EndGlobalSection
 EndGlobal
