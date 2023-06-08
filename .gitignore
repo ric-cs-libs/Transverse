@@ -10,13 +10,19 @@
 **/bin/*
 **/obj/*
 
+#
+_Packages/DEV/*
+!_Packages/DEV/.gitkeep
+_Packages/PROD/*
+!_Packages/PROD/.gitkeep
 
 #Les projets ayant chacun leur propre dépôt Git
-Transverse.*.*
+Transverse.*/*
+!Transverse.*/___Interfaces
+!Transverse.*/__Abstracts
+!Transverse.*/__Enums
 
 #
 *.lnk
 *Test?Result?
-
-#Temporaire
 Temp*
